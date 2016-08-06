@@ -12,13 +12,13 @@ import Foundation
 
 class PokeCell: Hashable {
     var position:Position
-    var pokemonType:Pokemon
+    var pokemonType:Pokemon?
     var sprite:SKSpriteNode?
     var hashValue: Int {
         return position.row*10 + position.column
     }
     
-    init(position:Position, pokemonType:Pokemon) {
+    init(position:Position, pokemonType:Pokemon?) {
         self.position = position
         self.pokemonType = pokemonType
     }

@@ -23,9 +23,21 @@ class Level {
     private func createInitialPokeGrid() -> Set<PokeCell> {
         var set = Set<PokeCell>()
         
+        var cellNumberArray:Array<Int> = []
+        
+        for _ in 0...2 {
+            let cellNumber = Int(arc4random_uniform(100))
+            cellNumberArray.append(cellNumber)
+            
+        }
+        
         for row in 0..<NumRows {
             for column in 0..<NumColumns {
-                let pokemonType = pokeRandom()
+                
+                var pokemonType:Pokemon? = nil
+                if (cellNumberArray.contains(row*column + column)) {
+                    pokemonType = pokeRandom()
+                }
                 
                 let cell = PokeCell(position: Position(row: row, column: column), pokemonType: pokemonType)
                 
@@ -33,6 +45,9 @@ class Level {
                 set.insert(cell)
             }
         }
+        
+
+        
         return set
     }
 }

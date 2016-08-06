@@ -91,3 +91,8 @@ let pokemon: [Pokemon] = [
     blastoise,
     pikachu
 ]
+
+func pokeRandom() -> Pokemon {
+    let p = pokemon[Int(arc4random_uniform(UInt32(pokemon.count)))]
+    return p
+}
